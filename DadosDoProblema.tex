@@ -1,0 +1,46 @@
+\section{Dados do Problema}%
+\label{sec:dados_problema}
+
+Os dados utilizados neste trabalho referem-se a um grafo não direcionado $G = (V, E)$, no qual $V$ representa o conjunto de vértices e $E$ o conjunto de arestas com pesos associados. Essas informações estão armazenadas no arquivo \texttt{arvore\_geradora\_minima.txt}, utilizado como entrada para o modelo.
+
+\subsection*{Estrutura do Arquivo}%
+\label{sec:estrutura_arquivo}
+
+O arquivo apresenta uma linha por aresta, contendo três valores: os vértices conectados e o peso da aresta. Esse formato facilita a leitura por programas de otimização e permite construir o grafo diretamente a partir do arquivo.
+
+\begin{itemize}
+    \item \textbf{Vértices:}  
+    Os vértices são identificados por números inteiros sequenciais. No conjunto utilizado, temos:
+    \[
+        V = \{0,1,2,\ldots,49\}
+    \]
+    Essa numeração simplifica o tratamento computacional e a indexação no modelo.
+
+    \item \textbf{Arestas e pesos:}  
+    Cada linha do arquivo segue o padrão:
+    \[
+        (u,v,w_{uv}),
+    \]
+    onde $u$ e $v$ são os vértices conectados e $w_{uv}$ é o peso da aresta. Exemplo extraído:
+    \[
+        E = \{(0,1,44), (1,2,18), (2,3,5), \ldots, (28,46,35)\}.
+    \]
+    Esses pesos compõem os coeficientes da função objetivo do modelo.
+
+    \item \textbf{Formato:}  
+    A organização em três colunas torna o arquivo compacto e facilmente processável, permitindo sua conversão imediata para estruturas de dados adequadas à representação do grafo.
+
+\end{itemize}
+
+\subsection*{Uso dos Dados no Modelo}%
+\label{sec:dados_modelo}
+
+As informações do arquivo permitem:
+
+\begin{itemize}
+    \item identificar todas as arestas disponíveis no grafo;
+    \item associar pesos $w_{uv}$ às variáveis $x_{uv}$;
+    \item definir o conjunto $E$ utilizado nas restrições de fluxo e cardinalidade.
+\end{itemize}
+
+Dessa forma, o arquivo fornece todos os elementos necessários para construir o grafo e aplicar o modelo matemático que determina a árvore geradora mínima.

@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{tikz}   
+\usepackage{tkz-graph}
+\usepackage[font=it]{caption}
+
+\geometry{
+    left=3cm,
+    right=2cm,
+    top=3cm,
+    bottom=2cm
+}
+
+\renewcommand{\contentsname}{Sumário}
+
+\setlength{\parindent}{1.25cm} 
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+% 1. CAPA
+\include{Capa}
+
+% 2. CONTRACAPA
+\include{Contracapa}
+
+% 3. SUMÁRIO
+\pagestyle{empty}
+\tableofcontents
+\clearpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% 4.INTRODUÇÃO
+\include{Introdução}
+
+% 5. MODELAGEM DO PROBLEMA
+\include{ModelagemDoProblema}
+
+% 6. DADOS DO PROBLEMA
+\include{DadosDoProblema}
+
+% 7. RESULTADOS
+\include{Resultados}
+
+% 8. CONCLUSÕES
+\include{Conclusões}
+
+\end{document}

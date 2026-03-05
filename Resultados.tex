@@ -1,0 +1,52 @@
+\section{Resultados}%
+\label{sec:resultados}
+
+A aplicação do modelo de Programação Linear Inteira permitiu determinar a solução ótima do problema da Árvore Geradora Mínima (AGM). As arestas selecionadas minimizam o custo total, respeitando as restrições de conectividade e evitando ciclos, conforme definido no modelo matemático.
+
+\subsection{Arestas Selecionadas}%
+\label{sec:arestas_selecionadas}
+
+Com base nas variáveis de decisão \(x_{uv}\) do modelo, as arestas incluídas na AGM são aquelas para as quais \(x_{uv} = 1\):
+
+\[
+\begin{aligned}
+    E_{\text{AGM}} = \{ & (2,3), (5,6), (8,9), (9,10), (11,12), (15,16), (24,25), \\
+    & (28,29), (31,32), (35,36), (36,37), (39,40), (48,49), (24,42), (15,45), \\
+    & (20,23), (6,17), (26,32), (24,49), (33,36), (24,43), (17,31), (12,29), \\
+    & (8,19), (35,49), (13,28), (31,43), (19,40), (16,42), (26,34), (38,40), \\
+    & (22,42), (39,41), (0,6), (1,30), (18,26), (7,46), (28,44), (4,19), (7,45), \\
+    & (21,41), (25,27), (39,47), (8,20), (15,19), (28,39), (1,48), (2,18), (14,34) \}
+\end{aligned}
+\]
+
+Estas arestas conectam todos os vértices do grafo, formando um grafo conexo e acíclico, atendendo às restrições do modelo.
+
+\subsection{Custo Total}%
+\label{sec:custo_total}
+
+O custo total da AGM, calculado somando os pesos \(w_{uv}\) das arestas selecionadas, é:
+
+\[
+    C_{\text{total}} = 433
+\]
+
+Esse valor representa o menor custo possível para interligar todos os vértices, confirmando que a solução encontrada é ótima de acordo com a função objetivo:
+
+\[
+    \min \sum_{(u,v)\in E} w_{uv} \, x_{uv}.
+\]
+
+\subsection{Relação com o Modelo Matemático}%
+\label{sec:relacao_modelo}
+
+As variáveis de decisão do modelo são \(x_{uv} \in \{0,1\}\), indicando se a aresta \((u,v)\) foi incluída na AGM.\@ A função objetivo consiste na minimização do custo total, conforme apresentado acima.
+
+As restrições do modelo foram atendidas de acordo com a solução ótima encontrada:
+
+\textbf{1. Quantidade de arestas:} A soma das variáveis de decisão é igual a \(n-1\), garantindo que a AGM possua exatamente o número correto de arestas.
+
+\textbf{2. Evitar ciclos:} As arestas selecionadas formam um grafo acíclico, assegurando que não existam ciclos na árvore.
+
+\textbf{3. Domínio das variáveis:} Cada variável de decisão satisfaz \(x_{uv} \in \{0,1\}\), garantindo que a solução seja discreta e represente corretamente a presença ou ausência de cada aresta na AGM.\@
+
+Dessa forma, os resultados demonstram que o modelo matemático implementado gerou uma solução ótima, com todas as restrições respeitadas e custo total mínimo.

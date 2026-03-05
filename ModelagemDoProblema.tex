@@ -1,0 +1,62 @@
+\section{Modelagem do Problema}%
+\label{sec:modelagem}
+
+A Árvore Geradora Mínima (AGM) pode ser formulada por um \textit{single-commodity flow model}, no qual o fluxo enviado pelo nó raiz garante conectividade e impede ciclos sem usar restrições de corte.
+
+Seja $G = (V,E)$ um grafo não direcionado, onde $V = \{0,1,\ldots,n-1\}$ e o vértice $0$ atua como raiz.
+
+\subsection{Variáveis de Decisão}
+
+\begin{itemize}
+    \item $x_{uv} \in \{0,1\}$: indica se a aresta $(u,v)$ faz parte da AGM.\@
+    \item $f_{uv} \ge 0$: fluxo enviado de $u$ para $v$, permitido apenas em arestas ativas.
+\end{itemize}
+
+\subsection{Função Objetivo}
+
+\begin{equation}
+    \min \sum_{(u,v)\in E} w_{uv}\, x_{uv}
+\end{equation}
+
+\subsection{Restrições}
+
+\paragraph{(a) Conservação de Fluxo}
+
+Na raiz:
+
+\begin{equation}
+    \sum_{v \in V} f_{0v} - \sum_{v \in V} f_{v0} = n-1
+\end{equation}
+
+Nos demais vértices:
+
+\begin{equation}
+    \sum_{u \in V} f_{u v} - \sum_{w \in V} f_{v w} = 1,
+    \quad \forall v \in V \setminus \{0\}
+\end{equation}
+
+\paragraph{(b) Capacidades (ligação fluxo–aresta)}
+
+\begin{equation}
+    f_{uv} \le (n-1)x_{uv}, \quad \forall (u,v)\in E
+\end{equation}
+
+\begin{equation}
+    f_{vu} \le (n-1)x_{uv}, \quad \forall (u,v)\in E
+\end{equation}
+
+\paragraph{(c) Cardinalidade das Arestas}
+
+\begin{equation}
+    \sum_{(u,v)\in E} x_{uv} = n-1
+\end{equation}
+
+\paragraph{(d) Domínio das Variáveis}
+
+\begin{align}
+    x_{uv} &\in \{0,1\}, && \forall (u,v)\in E \\
+    f_{uv} &\ge 0,       && \forall (u,v)\in E
+\end{align}
+
+\noindent
+Essa formulação garante que a solução seja uma árvore conexa, acíclica e de custo mínimo.
