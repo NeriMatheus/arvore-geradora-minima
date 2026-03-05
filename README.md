@@ -35,7 +35,4 @@ Este projeto foi desenvolvido como parte de estudos em **Teoria dos Grafos**, ab
 
 ---
 
-✍️ Autores: Matheus Neri
-            Thais Carvalho
-            Davison Mota
-            Vicente Junior
+✍️ Autores: Matheus Neri/Thais Carvalho/Davison Mota/Vicente Junior
